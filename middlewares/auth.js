@@ -1,10 +1,10 @@
-const jetHelper = require('../helpers/jwtHelper');
+const jwtHelper = require('../utils/jwtHelpers');
 
 exports.check = (req, res, next) => {
-  let token = req.header['authorization'];
+  let token = req.headers['authorization'];
   token = token?.replace('Bearer', '')?.trim();
 
-  const payload = jetHelper.verify(token);
+  const payload = jwtHelper.verify(token);
 
   if (payload) {
     req.userId=payload.sub

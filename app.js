@@ -5,8 +5,9 @@ const logger = require('morgan');
 const mongoose = require("mongoose");
 
 
+
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const authRouter = require('./routes/auth');
 
 const app = express();
 
@@ -17,7 +18,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/api/auth', authRouter);
 
 
 mongoose.connect(process.env.DB_URL)
