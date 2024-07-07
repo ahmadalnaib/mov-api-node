@@ -20,6 +20,6 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 
-mongoose.connect('process.env.DB_URL')
+mongoose.connect(process.env.DB_URL)
 
 module.exports = app;
